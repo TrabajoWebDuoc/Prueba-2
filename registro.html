@@ -41,13 +41,15 @@
           </div>
         </div>
       </nav>  
- 
-    
-    <div class ="container fluid">
-        <div class="form-floating">
-            <input type="rut" class="form-control" id="floatinginput" placeholder="xxxxxxxx-x">
-            <label for="floatingrut">rut</label>
-        </div>       
+      <h1>registrarse:</h1>
+
+      <div class ="container fluid">
+        <div class="form-group col-md-6">
+            <div class="form-floating">
+              <input type="rut" class="form-control" id="floatinginput" placeholder="xxxxxxxx-x">
+              <label for="floatingrut">rut</label>
+          </div>
+           <h1></h1>      
         <div class="form-floating">
             <input type="usuario" class="form-control" id="floatinginput" placeholder="first name">
             <label for="floatingnombre">nombre </label>
@@ -74,7 +76,7 @@
           </div>
           <div class="row g-2">
 
-  <div class="col-md">
+  <div class="col-md-6">
     <div class="form-floating">
       <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
         <option selected>region</option>
@@ -88,18 +90,21 @@
       <label for="floatingSelectGrid">region</label>
     </div>
   </div>
-  <div class="form-floating">
-    <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
-      <option selected>Nv educacional</option>
-      <option value="1">Doctor,E.Media  </option>
-      <option value="2">Magíster</option>
-      <option value="3">Profesional</option>
-      <option value="4">E.media</option>
-      <option value="5">E.Básica</option>
-      <option value="6">Otra</option>
-    </select>
-    <label for="floatingSelectGrid">nv educacional</label>
+  <div class="form-group col-md-6">
+    <div class="form-floating" >
+      <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+        <option selected>Nv educacional</option>
+        <option value="1">Doctorado  </option>
+        <option value="2">Magíster</option>
+        <option value="3">Profesional</option>
+        <option value="4">E.media</option>
+        <option value="5">E.Básica</option>
+        <option value="6">Otra</option>
+      </select>
+      <label for="floatingSelectGrid">nv educacional</label>
+    </div>
   </div>
+<div class="form-group col-md-6">    
   <button type="button" class="btn btn-primary btn-sm">registrarse</button>
 
 </div>
