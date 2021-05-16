@@ -1,15 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title> Registro                         </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <title> Registro </title>
+    <meta charset="UTF-8">
+    <Enlace  href =" https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css " rel =" hoja de estilo " integridad =" SHA384-eOJMYsd53ii + SCO / bJGFsiCZc + 5NDVN2yr8 + ​​0RDqr0Ql0h + rP48ckxlpbzKgwra6 " crossorigin =" anónimo " >
+    <link  rel = " stylesheet " href = " style.css " >    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script>
+      $(function()
+      {
+        $('.btnAceptar').click(function()
+        {
+          alert('mensaje')
+          let nombre	= $('.txtNombre').val(); 
+          let apellido= $('.txtApellido').val();
+          let Telefono= $('.txttelefono').val();
+          let rut= $('.txtrut').val();
+          let fecha= $('.txtfecha').val();
+          let Contraseña= $('.txtcontrasena').val();
+          let Email=$('.txtemail')
+          let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/
+          if(!emailRegex.test($('.txtEmail').val()))
+          {
+					alert("El formato del correo no es valido");
+					$('.txtEmail').focus();
+					return false;
+				  } 
+
+
+          if(nombre == "")
+				  {
+					  alert("Debe especificar el nombre");
+					  $('.txtNombre').focus();
+					  return false;
+				  }
+				  if(apellido == "")
+				  {
+					  alert("Debe especificar el apellido");
+					  $('.txtapellido').focus();
+					  return false;
+				  }
+				  if(Telefono == "")
+				  {
+					  alert("Debe especificar el telefono");
+					  $('.txttelefono').focus();
+					  return false;
+				  }
+				  if(rut == "")
+				  {
+					  alert("Debe especificar el rut");
+					  $('.txtrut').focus();
+					  return false;
+				  }
+				  if(fecha == "")
+				  {
+					  alert("Debe especificar la fecha");
+					  $('.txtfecha').focus();
+					  return false;
+				  }
+				  if(Contraseña == "")
+				  {
+					  alert("Debe llenar la contraseña");
+					  $('.txtcontrasena').focus();
+					  return false;
+				  }
+				  if(Email == "")
+				  {
+					  alert("Debe especificar email");
+					  $('.txtemail').focus();
+					  return false;
+				  }
+				  alert("Datos especificados:" + 
+						"\nNombre: " + $('.txtNombre').val()  + 
+						"\nApellido: " + $('.txtApellido').val()  +
+						"\nTelefono: " + $('.txtTelefono').val()  +
+						"\nEmail: " + $('.txtEmail').val() +
+						"\ncontraseña: " + $('.txtcontrasena').val()  +
+						"\nfecha: " + $('.txtfecha').val()  +
+						"\nrut: " + $('.txtrut').val()  
+          );
+        })
+
+      })
+    </script>    
 </head>
 <body class="body">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">e-Commerce</a>
+          <a class="navbar-brand" href="index.html">e-Commerce</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -43,37 +126,37 @@
         </div>
       </nav>  
  
-    <form class="formulario">
+    <form class="formulario"action="post">
     <div class ="registro">
         <div class="registro">
             <label for="floatingrut">rut</label>
-            <input type="rut" class="form-control" id="floatinginput" placeholder="xxxxxxxx-x">
+            <input type="rut"name='txtrut' class="txtrut form-control"  maxlength="9" placeholder="sin puntos ni guion">
             
         </div>       
         <div class="registro">
             <label for="floatingnombre">Nombre </label>
-            <input type="nombre" class="form-control" id="floatinginput" placeholder="Nombre">
+            <input type="text" name='txtname'class="txtname form-control" maxlength="50" placeholder="Nombre">
             
           </div>
           <div class="registro">
             <label for="floatingapellido">Apellido</label>
-            <input type="apellido" class="form-control" id="floatinginput" placeholder="Apellido">
+            <input type="text" name='txtapellido'class="txtapellido form-control" maxlength="50" placeholder="Apellido">
           </div>
           <div class="registro">
             <label for="floatingtelefono">Telefono</label>
-            <input type="telefono" class="form-control" id="floatinginput" placeholder="xxxxxxxxx">
+            <input type="text" name='txttelefono'class="txttelefono form-control" maxlength="11" placeholder="xxxxxxxxx">
           </div>          
         <div class="registro">
             <label for="floatinginput">Email o Correo</label>
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="email" name='txtemail'class="txtemail form-control" placeholder="name@example.com">
           </div>
           <div class="registro">
             <label for="floatingfecha">Fecha de nacimiento</label>
-            <input type="fecha_nacimiento" class="form-control" id="floatinginput" placeholder="xx/xx/xxxx">
+            <input type="date" name='txtfecha'class="txtfechaform-control" placeholder="xx/xx/xxxx">
           </div>
           <div class="registro">
             <label for="floatingPassword">Contraseña</label>
-            <input type="password" class="form-control" id="floatinginput" placeholder="Contraseña">
+            <input type="password" name='txtcontrasena'class="txtcontraseña form-control" maxlength="30" placeholder="Contraseña">
           </div>
           <div class="row g-2">
 
@@ -93,9 +176,9 @@
   </div>
   <div class="registro">
     <label for="floatingSelectGrid">Nv Educacional</label>
-    <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+    <select class="form-select" name="valueNv"id="floatingSelectGrid" aria-label="Floating label select example">
       <option selected></option>
-      <option value="1">Doctor,E.Media  </option>
+      <option value="1">Doctorado,</option>
       <option value="2">Magíster</option>
       <option value="3">Profesional</option>
       <option value="4">E.media</option>
@@ -103,7 +186,7 @@
       <option value="6">Otra</option>
     </select>   
   </div>
-  <button type="button" class="boton">registrarse</button>
+  <button type="submit" name='btnAceptar' class="boton" >registrarse</button>
   </form>
 </div>
 
