@@ -1,9 +1,10 @@
 .formulario {
-    width: 400px;
+    width: 500px;
+    box-align: center;
     background: #24303c;
     padding: 30px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 50px;
     border-radius: 4px;
     color: white;
 }
@@ -33,12 +34,12 @@
   }
 
   .boton {
-    width: 100%;
+    width: 80%;
     background: #1f53c5;
     border: none;
     padding: 12px;
     color: white;
-    margin: 16px 0;
+    margin:  16px auto;
     font-size: 16px;
   }
 
@@ -80,5 +81,6 @@
   width: 330px;
   height: 600px;
 }
+
 
 
