@@ -4,8 +4,9 @@
     <title> Registro </title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validaciones</title>
+    <title>Validaciones</title>  
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -16,29 +17,31 @@
         $('.btnAceptar').click(function()
         {
           let nombre	= $('.txtname').val(); 
-          let apellido= $('.txtApellido').val();
+          let apellido= $('.txtapellido').val();
           let Telefono= $('.txttelefono').val();
           let rut= $('.txtrut').val();
           let fecha= $('.txtfecha').val();
           let Contraseña= $('.txtcontrasena').val();
-          let Email= $('.txtemail')
+          let Email=$('.txtemail')
 
-          if(rut == "")
+
+          if(nombre == '')
+				  { 
+            alert("Debe especificar el nombre");
+					  $('.txtname').focus();
+					  return false;
+				  }
+				  if(rut == "")
 				  {
 					  alert("Debe especificar el rut");
 					  $('.txtrut').focus();
 					  return false;
-				  }
-          if(nombre == "")
-				  {
-					  alert("Debe especificar el nombre");
-					  $('.txtname').focus();
-					  return false;
-				  }
+				  }					  
+
 				  if(apellido == "")
 				  {
 					  alert("Debe especificar el apellido");
-					  $('.txtApellido').focus();
+					  $('.txtapellido').focus();
 					  return false;
 				  }
 				  if(Telefono == "")
@@ -47,34 +50,35 @@
 					  $('.txttelefono').focus();
 					  return false;
 				  }
-          if(Email == "")
-				  {
-					  alert("Debe especificar email");
-					  $('.txtemail').focus();
-					  return false;
-				  }
-				  if(fecha == "")
+
+				  if(fecha == "dd-mm-aaaa")
 				  {
 					  alert("Debe especificar la fecha");
 					  $('.txtfecha').focus();
 					  return false;
 				  }
-				  if(Contraseña == "")
+				  if(Email == "")
+				  {
+					  alert("Debe especificar email");
+					  $('.txtemail').focus();
+					  return false;
+				  }				  
+          if(Contraseña == "")
 				  {
 					  alert("Debe llenar la contraseña");
 					  $('.txtcontrasena').focus();
 					  return false;
 				  }
-				 
+
 				  alert("Datos especificados:" + 
 					"\nNombre: " + $('.txtname').val()  + 
-					"\nApellido: " + $('.txtApellido').val()  +
+					"\nApellido: " + $('.txtapellido').val()  +
 					"\nTelefono: " + $('.txttelefono').val()  +
 					"\nEmail: " + $('.txtemail').val() +
 					"\ncontraseña: " + $('.txtcontrasena').val()  +
-					"\nfecha: " + $('.txtfecha').val()  +
           "\nrut: " + $('.txtrut').val()  
           );
+          return false
         })
 
       })
@@ -117,29 +121,29 @@
         </div>
       </nav>  
  
-    <form class="formulario" action="post">
+    <form class="formulario"action="post">
     <div class ="registro">
         <div class="registro">
-            <label for="floatingrut">Rut</label>
+            <label for="floatingrut">rut</label>
             <input type="rut"name='txtrut' class="txtrut form-control"  maxlength="9" placeholder="sin puntos ni guion">
             
         </div>       
         <div class="registro">
             <label for="floatingnombre">Nombre </label>
-            <input type="text" name='txtname' class="txtname form-control" maxlength="50" placeholder="Nombre">
+            <input type="text" name='txtname'class="txtname form-control" maxlength="50" placeholder="Nombre">
             
           </div>
           <div class="registro">
             <label for="floatingapellido">Apellido</label>
-            <input type="text" name='txtapellido'class="txtApellido form-control" maxlength="50" placeholder="Apellido">
+            <input type="text" name='txtapellido'class="txtapellido form-control" maxlength="50" placeholder="Apellido">
           </div>
           <div class="registro">
             <label for="floatingtelefono">Telefono</label>
-            <input type="text" name='txttelefono' class="txttelefono form-control" maxlength="11" placeholder="xxxxxxxxx">
+            <input type="text" name='txttelefono'class="txttelefono form-control" maxlength="11" placeholder="xxxxxxxxx">
           </div>          
-          <div class="registro">
+        <div class="registro">
             <label for="floatinginput">Email o Correo</label>
-            <input type="text" name='txtemail' class="txtemail form-control" placeholder="name@example.com">
+            <input type="text" name='txtemail'class="txtemail form-control" placeholder="name@example.com">
           </div>
           <div class="registro">
             <label for="floatingfecha">Fecha de nacimiento</label>
@@ -147,7 +151,7 @@
           </div>
           <div class="registro">
             <label for="floatingPassword">Contraseña</label>
-            <input type="password" name='txtcontrasena'class="txtcontraseña form-control" maxlength="30" placeholder="Contraseña">
+            <input type="password" name='txtcontrasena'class="txtcontrasena form-control" maxlength="30" placeholder="Contraseña">
           </div>
           <div class="row g-2">
 
@@ -177,7 +181,7 @@
       <option value="6">Otra</option>
     </select>   
   </div>
-  <button type="submit" name='btnAceptar' class="btnAceptar float-right boton" value="enviar" >Registrar</button>
+  <button type="submit" name='btnAceptar' class="btnAceptar float-right" value="enviar">registrar</button>
   </form>
 </div>
 
