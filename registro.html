@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Validaciones</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
@@ -14,15 +15,20 @@
       {
         $('.btnAceptar').click(function()
         {
-          let nombre	= $('.txtNombre').val(); 
+          let nombre	= $('.txtname').val(); 
           let apellido= $('.txtApellido').val();
           let Telefono= $('.txttelefono').val();
           let rut= $('.txtrut').val();
           let fecha= $('.txtfecha').val();
           let Contraseña= $('.txtcontrasena').val();
-          let Email=$('.txtemail')
+          let Email= $('.txtemail')
 
-
+          if(rut == "")
+				  {
+					  alert("Debe especificar el rut");
+					  $('.txtrut').focus();
+					  return false;
+				  }
           if(nombre == "")
 				  {
 					  alert("Debe especificar el nombre");
@@ -32,7 +38,7 @@
 				  if(apellido == "")
 				  {
 					  alert("Debe especificar el apellido");
-					  $('.txtapellido').focus();
+					  $('.txtApellido').focus();
 					  return false;
 				  }
 				  if(Telefono == "")
@@ -41,10 +47,10 @@
 					  $('.txttelefono').focus();
 					  return false;
 				  }
-				  if(rut == "")
+          if(Email == "")
 				  {
-					  alert("Debe especificar el rut");
-					  $('.txtrut').focus();
+					  alert("Debe especificar email");
+					  $('.txtemail').focus();
 					  return false;
 				  }
 				  if(fecha == "")
@@ -59,17 +65,12 @@
 					  $('.txtcontrasena').focus();
 					  return false;
 				  }
-				  if(Email == "")
-				  {
-					  alert("Debe especificar email");
-					  $('.txtemail').focus();
-					  return false;
-				  }
+				 
 				  alert("Datos especificados:" + 
 					"\nNombre: " + $('.txtname').val()  + 
 					"\nApellido: " + $('.txtApellido').val()  +
-					"\nTelefono: " + $('.txtTelefono').val()  +
-					"\nEmail: " + $('.txtEmail').val() +
+					"\nTelefono: " + $('.txttelefono').val()  +
+					"\nEmail: " + $('.txtemail').val() +
 					"\ncontraseña: " + $('.txtcontrasena').val()  +
 					"\nfecha: " + $('.txtfecha').val()  +
           "\nrut: " + $('.txtrut').val()  
@@ -116,29 +117,29 @@
         </div>
       </nav>  
  
-    <form class="formulario"action="post">
+    <form class="formulario" action="post">
     <div class ="registro">
         <div class="registro">
-            <label for="floatingrut">rut</label>
+            <label for="floatingrut">Rut</label>
             <input type="rut"name='txtrut' class="txtrut form-control"  maxlength="9" placeholder="sin puntos ni guion">
             
         </div>       
         <div class="registro">
             <label for="floatingnombre">Nombre </label>
-            <input type="text" name='txtname'class="txtname form-control" maxlength="50" placeholder="Nombre">
+            <input type="text" name='txtname' class="txtname form-control" maxlength="50" placeholder="Nombre">
             
           </div>
           <div class="registro">
             <label for="floatingapellido">Apellido</label>
-            <input type="text" name='txtapellido'class="txtapellido form-control" maxlength="50" placeholder="Apellido">
+            <input type="text" name='txtapellido'class="txtApellido form-control" maxlength="50" placeholder="Apellido">
           </div>
           <div class="registro">
             <label for="floatingtelefono">Telefono</label>
-            <input type="text" name='txttelefono'class="txttelefono form-control" maxlength="11" placeholder="xxxxxxxxx">
+            <input type="text" name='txttelefono' class="txttelefono form-control" maxlength="11" placeholder="xxxxxxxxx">
           </div>          
-        <div class="registro">
+          <div class="registro">
             <label for="floatinginput">Email o Correo</label>
-            <input type="email" name='txtemail'class="txtemail form-control" placeholder="name@example.com">
+            <input type="text" name='txtemail' class="txtemail form-control" placeholder="name@example.com">
           </div>
           <div class="registro">
             <label for="floatingfecha">Fecha de nacimiento</label>
@@ -176,7 +177,7 @@
       <option value="6">Otra</option>
     </select>   
   </div>
-  <button type="submit" name='btnAceptar' class="btnAceptar float-right" value="enviar"href="index.html" >registrarse</button>
+  <button type="submit" name='btnAceptar' class="btnAceptar float-right boton" value="enviar" >Registrar</button>
   </form>
 </div>
 
