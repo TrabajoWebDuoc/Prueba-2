@@ -59,6 +59,7 @@
 					  $('.txtfecha').focus();
 					  return false;
 				  }
+
 				  if(Email == "")
 				  {
 					  alert("Debe especificar email");
@@ -83,6 +84,14 @@
 					  $('.valuenv').focus();
 					  return false;
 				  }
+          let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/
+				
+				if(!emailRegex.test($('.txtemail').val()))
+				{
+					alert("El formato del correo no es valido");
+					$('.txtemail').focus();
+					return false;
+				}				
 
 				  alert("Datos especificados:" + 
 					"\nNombre: " + $('.txtname').val()  + 
@@ -126,7 +135,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.html">e-Commerce</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -135,7 +144,7 @@
                 <a class="nav-link " href="inicio sesion.html">iniciar sesion</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                   registro
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -144,7 +153,7 @@
                 </ul>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                   ropa
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -187,7 +196,7 @@
           </div>          
         <div class="registro">
             <label for="floatinginput">Email o Correo</label>
-            <input type="text" name='txtemail'class="txtemail form-control" placeholder="name@example.com">
+            <input type="email" name='txtemail'class="txtemail form-control" placeholder="name@example.com">
           </div>
           <div class="registro">
             <label for="floatingfecha">Fecha de nacimiento</label>
@@ -213,19 +222,21 @@
       </select>
     </div>
   </div>
-  <div class="registro">
-    <label for="floatingSelectGrid">Nv Educacional</label>
-    <select class="form-select" name="valuenv"id="floatingSelectGrid" aria-label="Floating label select example">
-      <option value ='0'selected></option>
-      <option value="1">Doctorado,</option>
-      <option value="2">Magíster</option>
-      <option value="3">Profesional</option>
-      <option value="4">E.media</option>
-      <option value="5">E.Básica</option>
-      <option value="6">Otra</option>
-    </select>   
-  </div>
-  <button type="submit" name='btnAceptar' class="btnAceptar float-right" value="enviar">registrar</button>
+  <div class="col-md">
+    <div class="registro">
+      <label for="floatingSelectGrid">Nv Educacional</label>
+      <select class="form-select" name="valuenv"id="floatingSelectGrid" aria-label="Floating label select example">
+        <option selected></option>
+        <option value="1">Doctorado,</option>
+        <option value="2">Magíster</option>
+        <option value="3">Profesional</option>
+        <option value="4">E.media</option>
+        <option value="5">E.Básica</option>
+        <option value="6">Otra</option>
+      </select>   
+    </div>
+  </div>  
+  <button type="submit" name='btnAceptar' class="btnAceptar float-right boton" value="enviar">registrar</button>
   </form>
 </div>
 
