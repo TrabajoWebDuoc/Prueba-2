@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de API</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+	<script>
+		$(function()
+		{
+			$.getJSON('https://mindicador.cl/api', function(data) {
+				$('.txtdolar').val(data.dolar.valor);
+				
+			}).fail(function() {
+				console.log('Error al consumir la API!');
+			});
+			
+			$('.btnConvertir').click(function()
+			{
+				let pesos 			= $('.txtPesos').val();
+				let dolar_intercambio = $('.txtDolar_intercambio').val();
+				let total = pesos * 0.001412;
+				$('.txtTotalDolar').val(total);
+				return false;				
+			})
+		})
+	</script>
+</head>
+
+<body>
+    <!-- navbar -->
+    <div class="container">
+		<br>		
+        <h1 class="text-center">Convetidor de clp a dolares</h1>
+		<br>		
+		<form action="hola.html" method="post">
+			<div class="row mt-2">
+				<div class="col-12 col-md-2 offset-md-3">
+					Valor del dolar en clp Hoy
+				</div>
+				<div class="col-12 col-md-5">
+					<input type="text" name="txtdolar" class="txtdolar form-control">
+				</div>	
+			</div>	
+			<div class="row mt-2">
+				<div class="col-12 col-md-2 offset-md-3">
+					total de pesos chilenos
+				</div>
+				<div class="col-12 col-md-5">
+					<input type="text" name="txtPesos" class="txtPesos form-control">
+				</div>	
+			</div>	
+			<div class="row mt-2">
+				<div class="col-12 col-md-2 offset-md-3">
+					Total en dolares
+				</div>
+				<div class="col-12 col-md-5">
+					<input type="text" name="txtTotalDolar" class="txtTotalDolar form-control">
+				</div>	
+			</div>	
+			<div class="row mt-2">
+				<div class="col-12 col-md-2 offset-md-3">
+					Opciones
+				</div>
+				<div class="col-12 col-md-5">
+					<input type="submit" name="btnConvertir" class="btnConvertir btn btn-success" value="Convertir">
+					<input type="submit" name="btnLimpiar" class="btnLimpiar btn btn-light" value="Limpiar">
+				</div>	
+			</div>		
+		</form>
+	</div>
+</body>
+</html>
