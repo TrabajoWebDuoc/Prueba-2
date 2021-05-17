@@ -23,6 +23,8 @@
           let fecha= $('.txtfecha').val();
           let Contraseña= $('.txtcontrasena').val();
           let Email=$('.txtemail')
+          let carrera= $('.valuenv').val();
+          let region= $('.valueregion').val();
 
 
           if(nombre == '')
@@ -69,6 +71,18 @@
 					  $('.txtcontrasena').focus();
 					  return false;
 				  }
+          if(region == "0")
+				  {
+					  alert("Debe llenar la region");
+					  $('.valueregion').focus();
+					  return false;
+				  }
+          if(carrera == "0")
+				  {
+					  alert("especifique sus estudios");
+					  $('.valuenv').focus();
+					  return false;
+				  }
 
 				  alert("Datos especificados:" + 
 					"\nNombre: " + $('.txtname').val()  + 
@@ -78,50 +92,78 @@
 					"\ncontraseña: " + $('.txtcontrasena').val()  +
           "\nrut: " + $('.txtrut').val()  
           );
-          return false
+          return false;
+        });
+        var letras = 'qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNMÁÉÍóÚáéíóú ';
+        var email  = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM_.@1234567890 ';
+        var numeros= '1234567890';
+        
+        
+        $('.txtrut, .txttelefono').keypress(function(e)
+        {
+          let caracter = String.fromCharCode(e.which); //convierte el codigo
+          if(numeros.indexOf(caracter) <0)
+            return false;
         })
+        $('.txtname, .txtapellido').keypress(function(e)
+        {			
+          let caracter = String.fromCharCode(e.which);				
+          if(letras.indexOf(caracter) < 0)
+            return false;				
+        })
+        $('.txtemail').keypress(function(e)
+        {			
+          let caracter = String.fromCharCode(e.which);				
+          if(email.indexOf(caracter) < 0)
+            return false;				
+        })				
+
 
       })
     </script>    
 </head>
 <body class="body">
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.html">e-Commerse</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="inicio sesion.html">Iniciar sesion</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-            Registro
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="registro.html">usuario</a></li>
-            <li><a class="dropdown-item" href="registro-producto.html">producto</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Ropa
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="Chaleco.html">Chalecos</a>
-            <a class="dropdown-item" href="Pantalon.html">Pantalones</a>
-            <a class="dropdown-item" href="zapatillas.html">Zapatillas</a>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">e-Commerce</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link " href="inicio sesion.html">iniciar sesion</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  registro
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="registro.html">usuario</a></li>
+                  <li><a class="dropdown-item" href="registro-producto.html">producto</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  ropa
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="Chaleco.html">chaleco</a></li>
+                  <li><a class="dropdown-item" href="Pantalon.html">pantalones</a></li>
+                  <li><a class="dropdown-item" href="zapatillas.html">zapatillas</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">buscar</button>
+            </form>
           </div>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
+        </div>
+      </nav>  
  
     <form class="formulario"action="post">
     <div class ="registro">
@@ -160,7 +202,7 @@
   <div class="col-md">
     <div class="registro">
       <label for="floatingSelectGrid">Region</label>
-      <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+      <select class="form-select" name='valueregion'id="floatingSelectGrid" aria-label="Floating label select example">
         <option selected></option>
         <option value="1">R.Metropolitana</option>
         <option value="2">valparaiso</option>
@@ -173,8 +215,8 @@
   </div>
   <div class="registro">
     <label for="floatingSelectGrid">Nv Educacional</label>
-    <select class="form-select" name="valueNv"id="floatingSelectGrid" aria-label="Floating label select example">
-      <option selected></option>
+    <select class="form-select" name="valuenv"id="floatingSelectGrid" aria-label="Floating label select example">
+      <option value ='0'selected></option>
       <option value="1">Doctorado,</option>
       <option value="2">Magíster</option>
       <option value="3">Profesional</option>
@@ -183,7 +225,7 @@
       <option value="6">Otra</option>
     </select>   
   </div>
-  <button type="submit" name='btnAceptar' class="btnAceptar boton" value="enviar">registrar</button>
+  <button type="submit" name='btnAceptar' class="btnAceptar float-right" value="enviar">registrar</button>
   </form>
 </div>
 
